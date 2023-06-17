@@ -7,4 +7,7 @@
   --bg-main: #11131c;
   --bg-secondary: #171a26;
   --color-warning: #ff361b;
+  --skeleton-base-color: #5d6798;
+  --skeleton-highlight-color: #646e9f;
+  --base-color-hover: #2c76a0;
 }
