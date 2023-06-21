@@ -7,7 +7,7 @@ export const HeaderAuth = () => {
   const [isAnimate, setIsAnimate] = useState(false);
   return (
     <Link
-      className={styles.link}
+      className={styles.auth}
       to="/auth"
       onMouseOver={() => setIsAnimate(true)}
       onMouseLeave={() => setIsAnimate(false)}

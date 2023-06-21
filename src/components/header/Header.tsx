@@ -6,7 +6,7 @@ import styles from './Header.module.css';
 export const Header = () => {
   return (
     <header className={styles.header}>
-      <Wrapper>
+      <Wrapper className={styles.header__inner}>
         header
         <HeaderNavigation />
         <HeaderAuth />
