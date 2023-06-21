@@ -2,7 +2,7 @@
   --color-dark: #0d0e13;
   --color-white: #fff;
   --color-focus: #036fc7;
-  --color-accent: #a8c445;
+  --color-accent: #ff5794;
   --color-secondary: #5d6798;
   --bg-main: #11131c;
   --bg-secondary: #171a26;
@@ -10,4 +10,5 @@
   --skeleton-base-color: #5d6798;
   --skeleton-highlight-color: #646e9f;
   --base-color-hover: #2c76a0;
+  --base-animation: 0.25s ease-in;
 }

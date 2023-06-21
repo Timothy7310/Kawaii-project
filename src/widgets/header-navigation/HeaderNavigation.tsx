@@ -3,9 +3,25 @@ import styles from './HeaderNavigation.module.css';
 
 export const HeaderNavigation = () => {
   return (
-    <nav className={styles.nav}>
-      <NavLink to="/anime">Anime</NavLink>
-      <NavLink to="/manga">Manga</NavLink>
+    <nav>
+      <ul className={styles.nav__list}>
+        <li>
+          <NavLink
+            className={styles.nav__link}
+            to="/anime"
+          >
+            Anime 👀
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={styles.nav__link}
+            to="/manga"
+          >
+            Manga 📖
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 };
