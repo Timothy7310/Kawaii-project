@@ -1,0 +1,20 @@
+.link {
+  font-size: 18px;
+  color: var(--color-secondary);
+  transition: color var(--base-animation);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  &__sep {
+    display: block;
+    width: 100%;
+    height: 50px;
+    background: center / contain no-repeat url('@/shared/assets/images/totoro.png');
+  }
+  &:hover {
+    color: var(--color-accent);
+    & .totoro {
+      animation: squish_body 2s infinite;
+    }
+  }
+}
