@@ -1,0 +1,15 @@
+.auth {
+  font-size: 18px;
+  color: var(--color-secondary);
+  transition: color var(--base-animation);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-self: end;
+  &:hover {
+    color: var(--color-accent);
+    & .totoro {
+      animation: squish_body 2s infinite;
+    }
+  }
+}

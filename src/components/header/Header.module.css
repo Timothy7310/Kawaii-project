@@ -1,3 +1,7 @@
-.header {
-  color: tomato;
+.header__inner {
+  display: grid;
+  grid-template-columns: minmax(220px, min-content) 1fr minmax(220px, min-content);
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0px;
 }
