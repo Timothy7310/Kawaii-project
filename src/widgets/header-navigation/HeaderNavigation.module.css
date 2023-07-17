@@ -8,6 +8,9 @@
   color: var(--color-white);
   font-size: 21px;
   transition: color var(--base-animation);
+  display: flex;
+  align-items: center;
+  gap: 5px;
   &:hover {
     color: var(--color-accent);
   }
