@@ -1,0 +1,408 @@
+<template>
+  <div
+    class="totoro__container"
+    :class="{ 'totoro__container--animate': isAnimate }"
+  >
+    <div class="shadow"></div>
+    <div class="ears">
+      <div class="ears__left"></div>
+      <div class="ears__right"></div>
+    </div>
+    <div class="totoro">
+      <div class="body"></div>
+      <div class="pattern">
+        <div class="arrow arrow__1"></div>
+        <div class="arrow arrow__2"></div>
+        <div class="arrow arrow__3"></div>
+        <div class="arrow arrow__4"></div>
+        <div class="arrow arrow__5"></div>
+        <div class="arrow arrow__6"></div>
+        <div class="arrow arrow__7"></div>
+      </div>
+      <div class="eyes">
+        <div class="eyes__left"></div>
+        <div class="eyes__right"></div>
+      </div>
+      <div class="nose"></div>
+      <div class="whiskers">
+        <div class="whiskers__left"></div>
+        <div class="whiskers__right"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+defineProps<{ isAnimate: boolean }>();
+</script>
+
+<style scoped>
+.totoro__container {
+  --pink: #ffe2ed;
+  --grey: #919191;
+  --black: #282828;
+  --yellow: #ffecb5;
+  --brown: #4c352f;
+  --whiskers: #282828;
+  --back: #fff0f6;
+
+  position: relative;
+  width: 50px;
+  height: 50px;
+  &:before {
+    content: '';
+    display: block;
+    background-color: var(--back);
+    width: 72%;
+    height: 69%;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    top: 3px;
+    transition: background-color var(--base-animation);
+  }
+  &--animate {
+    & .totoro {
+      animation: squish_body 2s infinite;
+    }
+    & .whiskers {
+      &__left {
+        animation: squish_left_whiskers 2s infinite;
+      }
+      &__right {
+        animation: squish_right_whiskers 2s infinite;
+      }
+    }
+    & .ears {
+      &__left {
+        animation: squish_left_ears 2s infinite;
+      }
+      &__right {
+        animation: squish_right_ears 2s infinite;
+      }
+    }
+    &:before {
+      background-color: var(--color-accent);
+    }
+  }
+}
+
+.totoro {
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  top: 20%;
+}
+
+.body {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75%;
+  background-color: var(--grey);
+  overflow: hidden;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 80%;
+    position: relative;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 70% 70% 50% 50% / 60% 60% 90% 90%;
+    background-color: var(--yellow);
+  }
+}
+
+.pattern {
+  position: absolute;
+  width: 70%;
+  height: 20%;
+  top: 33%;
+  left: 50%;
+  transform: translatex(-50%);
+  z-index: 2;
+  .arrow {
+    position: absolute;
+    z-index: 3;
+    width: 2px;
+    height: 2px;
+    transform: rotate(45deg);
+    border-left: 1px solid var(--grey);
+    border-top: 1px solid var(--grey);
+    &__1 {
+      left: 20%;
+    }
+    &__2 {
+      left: 45%;
+    }
+    &__3 {
+      left: 70%;
+    }
+    &__4 {
+      left: 10%;
+      top: 50%;
+    }
+    &__5 {
+      left: 33%;
+      top: 50%;
+    }
+    &__6 {
+      left: 57%;
+      top: 50%;
+    }
+    &__7 {
+      left: 80%;
+      top: 50%;
+    }
+  }
+}
+
+.eyes {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 55%;
+  height: 10%;
+
+  &__left,
+  &__right {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: white;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 2px;
+      height: 2px;
+      background-color: black;
+      border-radius: 50%;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__left {
+    float: left;
+  }
+
+  &__right {
+    float: right;
+  }
+}
+
+.nose {
+  position: absolute;
+  width: 15%;
+  height: 3%;
+  background-color: var(--black);
+  top: 15%;
+  left: 50%;
+  transform: translatex(-50%);
+  border-radius: 80% 80% 50% 50% / 50% 50% 100% 100%;
+}
+
+.whiskers {
+  position: absolute;
+  width: 120%;
+  height: 20%;
+  top: 15%;
+  left: 50%;
+  transform: translatex(-50%);
+
+  &__left {
+    position: relative;
+    float: left;
+    top: calc(50% - 4%);
+    width: 15%;
+    height: 4%;
+    background-color: var(--whiskers);
+    transform-origin: 100% 50%;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transform: rotate(-30deg);
+      top: 5px;
+      left: 0px;
+      background-color: inherit;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transform: rotate(30deg);
+      top: -5px;
+      left: 2px;
+      background-color: inherit;
+    }
+  }
+  &__right {
+    position: relative;
+    float: right;
+    top: calc(50% - 4%);
+    width: 15%;
+    height: 4%;
+    background-color: var(--whiskers);
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transform: rotate(30deg);
+      top: 5px;
+      left: 0px;
+      background-color: inherit;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transform: rotate(-30deg);
+      top: -5px;
+      left: -2px;
+      background-color: inherit;
+    }
+  }
+}
+.ears {
+  position: absolute;
+  top: 9%;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 30%;
+  height: 20%;
+
+  &__left,
+  &__right {
+    width: 25%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--grey);
+    border-radius: 80% 80% 80% 80% / 60% 60% 90% 90%;
+  }
+  &__left {
+    float: left;
+    transform: rotate(-20deg);
+  }
+  &__right {
+    float: right;
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes squish_body {
+  0% {
+    transform: scaley(0.98) translatey(3%);
+  }
+  10% {
+    transform: scaley(0.83) translatey(6%);
+  }
+  30% {
+    transform: scaley(1.04) scalex(0.95) translatey(-7%);
+  }
+  32% {
+    transform: scaley(1.04) scalex(0.95) translatey(-7%);
+  }
+  60% {
+    transform: scaley(0.93) scalex(1) translatey(5%);
+  }
+  100% {
+    transform: scaley(0.98) translatey(3%);
+  }
+}
+
+@keyframes squish_left_ears {
+  0% {
+    transform: scaley(0.98) translatey(3%);
+  }
+  10% {
+    transform: scaley(1) translatey(9%) translatex(1%) rotate(7deg);
+  }
+  30% {
+    transform: scaley(1.04) translatey(-6%) translatex(-3%) rotate(-40deg);
+  }
+  33% {
+    transform: scaley(1.04) translatey(-6%) translatex(-3%) rotate(-40deg);
+  }
+  60% {
+    transform: scaley(0.98) translatey(6%) rotate(3deg);
+  }
+  100% {
+    transform: scaley(0.98) translatey(3%);
+  }
+}
+
+@keyframes squish_right_ears {
+  0% {
+    transform: scaley(0.98) translatey(3%);
+  }
+  10% {
+    transform: scaley(1) translatey(9%) translatex(-1%) rotate(-7deg);
+  }
+  30% {
+    transform: scaley(1.04) translatey(-6%) translatex(3%) rotate(40deg);
+  }
+  33% {
+    transform: scaley(1.04) translatey(-6%) translatex(3%) rotate(40deg);
+  }
+  60% {
+    transform: scaley(0.98) translatey(6%) rotate(-3deg);
+  }
+  100% {
+    transform: scaley(0.98) translatey(3%);
+  }
+}
+
+@keyframes squish_left_whiskers {
+  0% {
+  }
+  10% {
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  70% {
+  }
+  100% {
+  }
+}
+
+@keyframes squish_right_whiskers {
+  0% {
+  }
+  10% {
+    transform: rotate(-5deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  70% {
+  }
+  100% {
+  }
+}
+</style>
