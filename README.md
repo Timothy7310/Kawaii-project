@@ -1,3 +1,5 @@
 # Kawaii-project
+## Still in process 🛠️
 
-## Deploy: [link](https://kawaii-project.netlify.app/anime)
+### React Deploy: [link](https://kawaii-project-react.netlify.app/anime)
+### Vue Deploy: [link](https://kawaii-project-vue.netlify.app/anime)
