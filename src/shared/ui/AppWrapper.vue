@@ -1,12 +1,14 @@
 <template lang="">
-  <div class="bounding">
-    <div
-      class="inner"
-      :class="className ?? ''"
-    >
-      <slot></slot>
+  <main>
+    <div class="bounding">
+      <div
+        class="inner"
+        :class="className ?? ''"
+      >
+        <slot></slot>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 <script setup lang="ts">
 type Props = {

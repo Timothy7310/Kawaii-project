@@ -9,6 +9,7 @@ query CardsListQuery(
   Page(page: $page, perPage: $perPage) {
     media(type: $type, sort: $sort, seasonYear: $seasonYear, season: $season) {
       id
+      type
       title {
         english
         romaji

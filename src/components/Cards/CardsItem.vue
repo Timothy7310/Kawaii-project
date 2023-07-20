@@ -9,9 +9,9 @@
       :height="265"
     >
     </VSkeletonLoader>
-    <a
+    <router-link
       v-else
-      href=""
+      :to="{ name: isManga ? 'MediaManga' : 'MediaAnime', params: { id } }"
       class="poster__wrap"
     >
       <img
@@ -19,7 +19,7 @@
         class="poster"
         alt=""
       />
-    </a>
+    </router-link>
 
     <VSkeletonLoader
       v-if="isLoading"
@@ -27,23 +27,26 @@
       type="list-item-two-line"
     >
     </VSkeletonLoader>
-    <a
+    <router-link
       v-else
+      :to="{ name: isManga ? 'MediaManga' : 'MediaAnime', params: { id } }"
       href=""
       class="title__wrap"
     >
       <h3 class="title">{{ titleEng || titleOriginal }}</h3>
       <span class="title__original">{{ titleEng ? titleOriginal : '' }}</span>
-    </a>
+    </router-link>
   </li>
 </template>
 
 <script setup lang="ts">
 type Props = {
+  id?: number;
   imageSrc?: string;
   colorHover?: string;
   titleEng?: string;
   titleOriginal?: string;
+  isManga?: boolean;
   isLoading: boolean;
 };
 

@@ -24,11 +24,13 @@
       <CardsItem
         v-for="result in results"
         :key="result?.id"
+        :id="result?.id"
         :colorHover="(result?.coverImage?.color as string)"
         :titleEng="result?.title?.english ?? ''"
         :titleOriginal="result?.title?.romaji ?? ''"
         :imageSrc="result?.coverImage?.large ?? ''"
         :isLoading="loading"
+        :isManga="result?.type === MediaType.Manga"
       />
     </ul>
   </section>
