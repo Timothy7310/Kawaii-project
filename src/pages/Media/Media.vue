@@ -1,21 +1,45 @@
 <template>
   <AppWrapper>
-    <div v-if="loading">loading...</div>
-    <div v-if="error">error {{ error.message }}</div>
-    <div v-if="result.Media">
-      {{ media.title.english }}
-    </div>
+    <section
+      class="media"
+      v-if="loading"
+    >
+      <MediaHead
+        :info="{
+          isLoading: loading,
+        }"
+      />
+    </section>
+    <div v-else-if="error">error {{ error.message }}</div>
+    <section
+      v-else-if="media"
+      class="media"
+    >
+      <MediaHead
+        :info="{
+          coverImage: media.coverImage,
+          title: media.title,
+          description: media.description,
+          isLoading: loading,
+        }"
+      />
+    </section>
   </AppWrapper>
 </template>
 
 <script setup lang="ts">
 import { useMediaPageQuery } from './__generated__/MediaPageQuery';
 import { computed } from 'vue';
+import MediaHead from '@/components/Media/MediaHead.vue';
 
-const props = defineProps<{ id: number }>();
+const props = defineProps<{ id: string }>();
 
-const { result, loading, error } = useMediaPageQuery({ id: props.id });
-const media = computed(() => result.value.Media);
+const { result, loading, error } = useMediaPageQuery({ id: +props.id });
+const media = computed(() => result?.value?.Media);
 </script>
 
-<style scoped></style>
+<style>
+.media {
+  width: 100%;
+}
+</style>
