@@ -1,5 +1,5 @@
 <template>
-  <AppWrapper>
+  <AppWrapper className="media__inner">
     <section
       class="media"
       v-if="loading"
@@ -24,6 +24,7 @@
           isLoading: loading,
         }"
       />
+      <MediaNavigation activeTab="Overview" />
       <MediaTags
         :tags="media.tags"
         v-if="media.tags"
@@ -37,6 +38,7 @@ import { useMediaPageQuery } from './__generated__/MediaPageQuery';
 import { computed } from 'vue';
 import MediaHead from '@/components/Media/MediaHead.vue';
 import MediaTags from '@/components/Media/MediaTags.vue';
+import MediaNavigation from '@/components/Media/MediaNavigation.vue';
 
 const props = defineProps<{ id: string }>();
 
@@ -47,5 +49,8 @@ const media = computed(() => result?.value?.Media);
 <style>
 .media {
   width: 100%;
+  &__inner {
+    align-items: flex-start !important;
+  }
 }
 </style>

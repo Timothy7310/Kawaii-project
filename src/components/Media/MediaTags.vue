@@ -1,20 +1,20 @@
 <template>
-  <div class="tags">
-    <h2 class="tags__title">Tags</h2>
-    <ul class="tags__list">
+  <div class="media-tags">
+    <h2 class="media-tags__title">Tags</h2>
+    <ul class="media-tags__list">
       <li
         v-for="tag in tags"
-        class="tags__item"
+        class="media-tags__item"
       >
         <span
           v-if="tag?.name"
-          class="tags__item-name"
+          class="media-tags__item-name"
         >
           {{ tag.name }}
         </span>
         <span
           v-if="tag?.rank"
-          class="tags__item-rank"
+          class="media-tags__item-rank"
         >
           {{ tag.rank }}%
         </span>
@@ -30,7 +30,7 @@ defineProps<{
 </script>
 
 <style>
-.tags {
+.media-tags {
   max-width: 210px;
   &__title {
     margin: 0px 0px 20px 0px;
