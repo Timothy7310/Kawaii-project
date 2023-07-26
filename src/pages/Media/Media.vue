@@ -14,6 +14,7 @@
     <section
       v-else-if="media"
       class="media"
+      :style="{ '--color-media': media.coverImage?.color ?? 'var(--base-color-hover)' }"
     >
       <MediaHead
         :info="{
@@ -23,6 +24,10 @@
           isLoading: loading,
         }"
       />
+      <MediaTags
+        :tags="media.tags"
+        v-if="media.tags"
+      />
     </section>
   </AppWrapper>
 </template>
@@ -31,6 +36,7 @@
 import { useMediaPageQuery } from './__generated__/MediaPageQuery';
 import { computed } from 'vue';
 import MediaHead from '@/components/Media/MediaHead.vue';
+import MediaTags from '@/components/Media/MediaTags.vue';
 
 const props = defineProps<{ id: string }>();
 

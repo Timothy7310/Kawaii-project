@@ -11,7 +11,6 @@
     <div
       v-else
       class="media-head__poster-wrap"
-      :style="{ '--color-image': info.coverImage?.color ?? 'var(--base-color-hover)' }"
     >
       <img
         :src="info.coverImage?.large ?? ''"
@@ -94,7 +93,7 @@ const loadMore = () => {
     width: 100%;
     &-wrap {
       align-self: flex-start;
-      background-color: var(--color-image);
+      background-color: var(--color-media);
       border-radius: 5px;
       height: 325px;
       width: 100%;
@@ -114,6 +113,7 @@ const loadMore = () => {
   &__title {
     margin: 0;
     font-size: 32px;
+    color: var(--color-media);
   }
   &__description {
     margin: 0;
@@ -130,7 +130,7 @@ const loadMore = () => {
     opacity: 0;
     background: var(--description-load-more-bg);
     transition: opacity var(--base-animation);
-    color: var(--color-accent);
+    color: var(--color-media);
     &:hover {
       opacity: 1;
     }
