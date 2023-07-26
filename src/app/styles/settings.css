@@ -75,3 +75,12 @@ a:focus-visible {
 .v-skeleton-loader__image.v-skeleton-loader__bone {
   height: 100%;
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,95 @@
+query MediaPageQuery($id: Int) {
+  Media(id: $id) {
+    title {
+      english
+      romaji
+      native
+    }
+    description
+    bannerImage
+    coverImage {
+      large
+      extraLarge
+      color
+    }
+    trailer {
+      id
+      site
+      thumbnail
+    }
+    characters(sort: FAVOURITES_DESC, perPage: 6, page: 1) {
+      nodes {
+        name {
+          userPreferred
+          full
+        }
+        image {
+          medium
+        }
+      }
+      edges {
+        role
+      }
+    }
+    staff(sort: FAVOURITES_DESC, perPage: 3, page: 1) {
+      nodes {
+        name {
+          full
+        }
+        image {
+          medium
+        }
+      }
+      edges {
+        role
+      }
+    }
+    recommendations(sort: RATING, perPage: 7, page: 1) {
+      edges {
+        node {
+          id
+          media {
+            coverImage {
+              medium
+              color
+            }
+            title {
+              english
+              romaji
+            }
+          }
+        }
+      }
+    }
+    tags {
+      name
+      rank
+    }
+    format
+    episodes
+    duration
+    status
+    startDate {
+      month
+      day
+      year
+    }
+    endDate {
+      month
+      day
+      year
+    }
+    averageScore
+    popularity
+    favourites
+    studios(isMain: true) {
+      nodes {
+        id
+        name
+      }
+    }
+    source
+    synonyms
+    genres
+  }
+}

@@ -11,4 +11,5 @@
   --skeleton-highlight-color: #646e9f;
   --base-color-hover: #2c76a0;
   --base-animation: 0.25s ease-in;
+  --description-load-more-bg: linear-gradient(0deg, rgb(17, 19, 28) 16%, rgba(17, 19, 28, 0.4));
 }
