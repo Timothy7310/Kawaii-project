@@ -31,7 +31,7 @@ defineProps<{ staff: MediaStaffEdge }>();
   }
   &-item {
     display: grid;
-    grid-template-rows: max-content max-content;
+    grid-template-rows: max-content 1fr;
     grid-template-columns: 68px 1fr;
     gap: 15px;
     background-color: var(--color-dark);
@@ -40,6 +40,8 @@ defineProps<{ staff: MediaStaffEdge }>();
     &__avatar {
       grid-row: 1 / 3;
       grid-column: 1;
+      height: 100%;
+      object-fit: cover;
     }
     &__name {
       grid-row: 1;

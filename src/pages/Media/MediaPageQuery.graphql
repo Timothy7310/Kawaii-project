@@ -31,7 +31,7 @@ query MediaPageQuery($id: Int) {
         role
       }
     }
-    staff(sort: FAVOURITES_DESC, perPage: 3, page: 1) {
+    staff(sort: RELEVANCE, perPage: 3, page: 1) {
       edges {
         role
         node {
