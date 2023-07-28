@@ -24,24 +24,34 @@
           isLoading: loading,
         }"
       />
-      <MediaNavigation activeTab="Overview" />
+      <MediaNavigation
+        @changeTabs="
+          (value) => {
+            activeTab = value;
+            console.log(value);
+          }
+        "
+      />
       <MediaTags
         :tags="media.tags"
         v-if="media.tags"
       />
-      <div class="media-content">Overview</div>
+      <MediaContent :content="activeTab" />
     </section>
   </AppWrapper>
 </template>
 
 <script setup lang="ts">
+import { MediaActiveTabs } from '@/app/types';
 import { useMediaPageQuery } from './__generated__/MediaPageQuery';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import MediaHead from '@/components/Media/MediaHead.vue';
 import MediaTags from '@/components/Media/MediaTags.vue';
 import MediaNavigation from '@/components/Media/MediaNavigation.vue';
+import MediaContent from '@/components/Media/MediaContent.vue';
 
 const props = defineProps<{ id: string }>();
+const activeTab = ref<MediaActiveTabs>(MediaActiveTabs.Overview);
 
 const { result, loading, error } = useMediaPageQuery({ id: +props.id });
 const media = computed(() => result?.value?.Media);
@@ -53,7 +63,7 @@ const media = computed(() => result?.value?.Media);
   display: grid;
   grid-template-columns: 230px 1fr;
   grid-template-rows: max-content 50px 1fr;
-  row-gap: 40px;
+  gap: 40px;
   &__inner {
     align-items: flex-start !important;
   }

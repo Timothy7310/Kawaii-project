@@ -1,49 +1,32 @@
 <template>
   <div class="media-navigation">
-    <!-- TODO: сделать красиво) -->
     <button
       class="media-navigation__button"
-      :class="{ 'media-navigation__button--active': prop.activeTab === 'Overview' }"
-      >Overview</button
-    >
-    <button
-      class="media-navigation__button"
-      :class="{ 'media-navigation__button--active': prop.activeTab === 'Watch' }"
-      >Watch</button
-    >
-    <button
-      class="media-navigation__button"
-      :class="{ 'media-navigation__button--active': prop.activeTab === 'Characters' }"
-      >Characters</button
-    >
-    <button
-      class="media-navigation__button"
-      :class="{ 'media-navigation__button--active': prop.activeTab === 'Staff' }"
-      >Staff</button
-    >
-    <button
-      class="media-navigation__button"
-      :class="{ 'media-navigation__button--active': prop.activeTab === 'Reviews' }"
-      >Reviews</button
-    >
-    <button
-      class="media-navigation__button"
-      :class="{ 'media-navigation__button--active': prop.activeTab === 'Stats' }"
-      >Stats</button
-    >
-    <button
-      class="media-navigation__button"
-      :class="{ 'media-navigation__button--active': prop.activeTab === 'Social' }"
-      >Social</button
+      :class="{ 'media-navigation__button--active': activeTab === tabs }"
+      v-for="tabs in MediaActiveTabs"
+      @click="({currentTarget}) => changeTab(currentTarget as EventTarget)"
+      :data-type="tabs"
+      >{{ capitalize(tabs) }}</button
     >
   </div>
 </template>
 
 <script setup lang="ts">
-type Props = {
-  activeTab: 'Overview' | 'Watch' | 'Characters' | 'Staff' | 'Reviews' | 'Stats' | 'Social';
+import { MediaActiveTabs } from '@/app/types';
+import { ref } from 'vue';
+import { capitalize } from '@/helpers/capitalize';
+
+const emits = defineEmits(['changeTabs']);
+
+const activeTab = ref<MediaActiveTabs>(MediaActiveTabs.Overview);
+
+const changeTab = (target: EventTarget) => {
+  if (!(target instanceof HTMLButtonElement)) {
+    return;
+  }
+  activeTab.value = (target.dataset.type as MediaActiveTabs) || activeTab.value;
+  emits('changeTabs', activeTab.value);
 };
-const prop = defineProps<Props>();
 </script>
 
 <style>
@@ -57,6 +40,7 @@ const prop = defineProps<Props>();
   &__button {
     color: var(--color-secondary);
     transition: color var(--base-animation);
+    text-transform: capitalize;
     &:hover {
       color: var(--color-white);
     }
