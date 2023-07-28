@@ -32,16 +32,16 @@ query MediaPageQuery($id: Int) {
       }
     }
     staff(sort: FAVOURITES_DESC, perPage: 3, page: 1) {
-      nodes {
-        name {
-          full
-        }
-        image {
-          medium
-        }
-      }
       edges {
         role
+        node {
+          name {
+            full
+          }
+          image {
+            medium
+          }
+        }
       }
     }
     recommendations(sort: RATING, perPage: 7, page: 1) {

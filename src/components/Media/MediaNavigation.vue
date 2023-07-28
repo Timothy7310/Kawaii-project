@@ -37,6 +37,7 @@ const changeTab = (target: EventTarget) => {
   gap: 10px;
   justify-content: center;
   border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 10px;
   &__button {
     color: var(--color-secondary);
     transition: color var(--base-animation);

@@ -24,19 +24,15 @@
           isLoading: loading,
         }"
       />
-      <MediaNavigation
-        @changeTabs="
-          (value) => {
-            activeTab = value;
-            console.log(value);
-          }
-        "
-      />
+      <MediaNavigation @changeTabs="(value) => (activeTab = value)" />
       <MediaTags
         :tags="media.tags"
         v-if="media.tags"
       />
-      <MediaContent :content="activeTab" />
+      <MediaContent
+        :info="{ staff: media.staff?.edges }"
+        :content="activeTab"
+      />
     </section>
   </AppWrapper>
 </template>
@@ -62,7 +58,7 @@ const media = computed(() => result?.value?.Media);
   width: 100%;
   display: grid;
   grid-template-columns: 230px 1fr;
-  grid-template-rows: max-content 50px 1fr;
+  grid-template-rows: max-content 40px 1fr;
   gap: 40px;
   &__inner {
     align-items: flex-start !important;
