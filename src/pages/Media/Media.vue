@@ -30,7 +30,11 @@
         v-if="media.tags"
       />
       <MediaContent
-        :info="{ staff: media.staff?.edges, characters: media.characters?.edges }"
+        :info="{
+          staff: media.staff?.edges,
+          characters: media.characters?.edges,
+          trailer: media.trailer,
+        }"
         :content="activeTab"
       />
     </section>

@@ -39,3 +39,13 @@ export type MediaCharacters =
     } | null>
   | null
   | undefined;
+
+export type MediaTrailerType =
+  | {
+      __typename: 'MediaTrailer';
+      id?: string | null;
+      site?: string | null;
+      thumbnail?: string | null;
+    }
+  | null
+  | undefined;

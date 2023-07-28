@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { MediaStaffEdge, MediaCharacters } from '@/app/types';
+import { MediaStaffEdge, MediaCharacters, MediaTrailerType } from '@/app/types';
 import { MediaActiveTabs } from '@/app/types';
 import MediaOverview from './MediaOverview.vue';
 import MediaStaff from './MediaStaff.vue';
@@ -17,6 +17,7 @@ import MediaStaff from './MediaStaff.vue';
 type Props = {
   staff: MediaStaffEdge;
   characters: MediaCharacters;
+  trailer: MediaTrailerType;
 };
 
 defineProps<{ content: MediaActiveTabs; info: Props }>();
