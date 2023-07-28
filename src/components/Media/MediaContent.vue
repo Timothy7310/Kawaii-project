@@ -9,13 +9,14 @@
 </template>
 
 <script setup lang="ts">
-import { MediaStaffEdge } from '@/app/types';
+import { MediaStaffEdge, MediaCharacters } from '@/app/types';
 import { MediaActiveTabs } from '@/app/types';
 import MediaOverview from './MediaOverview.vue';
 import MediaStaff from './MediaStaff.vue';
 
 type Props = {
   staff: MediaStaffEdge;
+  characters: MediaCharacters;
 };
 
 defineProps<{ content: MediaActiveTabs; info: Props }>();
@@ -25,5 +26,8 @@ defineProps<{ content: MediaActiveTabs; info: Props }>();
 .media-content {
   grid-row: 3;
   grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 </style>

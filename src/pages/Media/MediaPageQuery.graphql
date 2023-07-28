@@ -18,17 +18,17 @@ query MediaPageQuery($id: Int) {
       thumbnail
     }
     characters(sort: FAVOURITES_DESC, perPage: 6, page: 1) {
-      nodes {
-        name {
-          userPreferred
-          full
-        }
-        image {
-          medium
-        }
-      }
       edges {
         role
+        node {
+          name {
+            userPreferred
+            full
+          }
+          image {
+            medium
+          }
+        }
       }
     }
     staff(sort: RELEVANCE, perPage: 3, page: 1) {
