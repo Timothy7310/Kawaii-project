@@ -29,6 +29,7 @@
         :tags="media.tags"
         v-if="media.tags"
       />
+      <div class="media-content">Overview</div>
     </section>
   </AppWrapper>
 </template>
@@ -49,6 +50,10 @@ const media = computed(() => result?.value?.Media);
 <style>
 .media {
   width: 100%;
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  grid-template-rows: max-content 50px 1fr;
+  row-gap: 40px;
   &__inner {
     align-items: flex-start !important;
   }

@@ -83,6 +83,8 @@ const loadMore = () => {
   display: flex;
   gap: 35px;
   width: 100%;
+  grid-row: 1;
+  grid-column: 1 / 3;
   &__poster {
     height: 100%;
     left: 0;

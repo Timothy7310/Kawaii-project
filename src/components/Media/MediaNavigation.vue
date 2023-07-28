@@ -48,11 +48,11 @@ const prop = defineProps<Props>();
 
 <style>
 .media-navigation {
+  grid-row: 2;
+  grid-column: 1 / 3;
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin: 40px 0px;
-  padding-bottom: 10px;
   border-bottom: 1px solid var(--color-accent);
   &__button {
     color: var(--color-secondary);
