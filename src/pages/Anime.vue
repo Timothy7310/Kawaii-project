@@ -1,5 +1,6 @@
 <template>
   <AppWrapper :className="'inner__anime'">
+    <!-- TODO: сделать динамический seasonYear и season -->
     <CardsList
       :title="'Trending now'"
       :variables="{

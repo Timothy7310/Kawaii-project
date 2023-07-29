@@ -31,8 +31,6 @@ defineProps<{
 
 <style>
 .media-tags {
-  grid-row: 3;
-  grid-column: 1;
   &__title {
     margin: 0px 0px 20px 0px;
     font-size: 24px;

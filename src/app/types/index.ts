@@ -49,3 +49,54 @@ export type MediaTrailerType =
     }
   | null
   | undefined;
+
+export type MediaDataType = {
+  airing?: {
+    __typename: 'AiringScheduleConnection';
+    edges?: Array<{
+      __typename: 'AiringScheduleEdge';
+      node?: {
+        __typename: 'AiringSchedule';
+        airingAt: number;
+        episode: number;
+        timeUntilAiring: number;
+      } | null;
+    } | null> | null;
+  } | null;
+  format?: Types.MediaFormat | null;
+  episodes?: number | null;
+  duration?: number | null;
+  status?: Types.MediaStatus | null;
+  startDate?: {
+    __typename: 'FuzzyDate';
+    month?: number | null;
+    day?: number | null;
+    year?: number | null;
+  } | null;
+  endDate?: {
+    __typename: 'FuzzyDate';
+    month?: number | null;
+    day?: number | null;
+    year?: number | null;
+  } | null;
+  season?: Types.MediaSeason | null;
+  seasonYear?: number | null;
+  averageScore?: number | null;
+  meanScore?: number | null;
+  popularity?: number | null;
+  favourites?: number | null;
+  studios?: {
+    __typename: 'StudioConnection';
+    nodes?: Array<{ __typename: 'Studio'; id: number; name: string } | null> | null;
+  } | null;
+  source?: Types.MediaSource | null;
+  hashtag?: string | null;
+  genres?: Array<string | null> | null;
+  title?: {
+    __typename: 'MediaTitle';
+    english?: string | null;
+    romaji?: string | null;
+    native?: string | null;
+  } | null;
+  synonyms?: Array<string | null> | null;
+};

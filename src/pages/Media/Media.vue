@@ -25,10 +25,35 @@
         }"
       />
       <MediaNavigation @changeTabs="(value) => (activeTab = value)" />
-      <MediaTags
-        :tags="media.tags"
-        v-if="media.tags"
-      />
+      <aside class="media-aside">
+        <MediaData
+          :data="{
+            airing: media.airingSchedule,
+            format: media.format,
+            episodes: media.episodes,
+            duration: media.duration,
+            status: media.status,
+            startDate: media.startDate,
+            endDate: media.endDate,
+            season: media.season,
+            seasonYear: media.seasonYear,
+            averageScore: media.averageScore,
+            meanScore: media.meanScore,
+            popularity: media.popularity,
+            favourites: media.favourites,
+            studios: media.studios,
+            source: media.source,
+            hashtag: media.hashtag,
+            genres: media.genres,
+            title: media.title,
+            synonyms: media.synonyms,
+          }"
+        />
+        <MediaTags
+          :tags="media.tags"
+          v-if="media.tags"
+        />
+      </aside>
       <MediaContent
         :info="{
           staff: media.staff?.edges,
@@ -49,6 +74,7 @@ import MediaHead from '@/components/Media/MediaHead.vue';
 import MediaTags from '@/components/Media/MediaTags.vue';
 import MediaNavigation from '@/components/Media/MediaNavigation.vue';
 import MediaContent from '@/components/Media/MediaContent.vue';
+import MediaData from '@/components/Media/MediaData.vue';
 
 const props = defineProps<{ id: string }>();
 const activeTab = ref<MediaActiveTabs>(MediaActiveTabs.Overview);
@@ -66,6 +92,13 @@ const media = computed(() => result?.value?.Media);
   gap: 40px;
   &__inner {
     align-items: flex-start !important;
+  }
+  &-aside {
+    grid-row: 3;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 }
 </style>

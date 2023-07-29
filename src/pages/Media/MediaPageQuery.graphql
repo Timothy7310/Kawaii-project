@@ -65,6 +65,15 @@ query MediaPageQuery($id: Int) {
       name
       rank
     }
+    airingSchedule(notYetAired: true, page: 1, perPage: 1) {
+      edges {
+        node {
+          airingAt
+          episode
+          timeUntilAiring
+        }
+      }
+    }
     format
     episodes
     duration
@@ -79,7 +88,10 @@ query MediaPageQuery($id: Int) {
       day
       year
     }
+    season
+    seasonYear
     averageScore
+    meanScore
     popularity
     favourites
     studios(isMain: true) {
@@ -89,7 +101,8 @@ query MediaPageQuery($id: Int) {
       }
     }
     source
-    synonyms
+    hashtag
     genres
+    synonyms
   }
 }
