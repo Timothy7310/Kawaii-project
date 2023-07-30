@@ -9,12 +9,13 @@
 </template>
 
 <script setup lang="ts">
-import { MediaStaffEdge, MediaCharacters, MediaTrailerType } from '@/app/types';
+import { MediaStaffEdge, MediaCharacters, MediaTrailerType, MediaRelationsType } from '@/app/types';
 import { MediaActiveTabs } from '@/app/types';
 import MediaOverview from './MediaOverview.vue';
 import MediaStaff from './MediaStaff.vue';
 
 type Props = {
+  relations: MediaRelationsType;
   staff: MediaStaffEdge;
   characters: MediaCharacters;
   trailer: MediaTrailerType;

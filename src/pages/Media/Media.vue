@@ -56,6 +56,7 @@
       </aside>
       <MediaContent
         :info="{
+          relations: media.relations?.edges,
           staff: media.staff?.edges,
           characters: media.characters?.edges,
           trailer: media.trailer,

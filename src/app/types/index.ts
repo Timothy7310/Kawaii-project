@@ -100,3 +100,25 @@ export type MediaDataType = {
   } | null;
   synonyms?: Array<string | null> | null;
 };
+
+export type MediaRelationsType =
+  | Array<{
+      __typename: 'MediaEdge';
+      relationType?: Types.MediaRelation | null;
+      node?: {
+        __typename: 'Media';
+        id: number;
+        type?: Types.MediaType | null;
+        status?: Types.MediaStatus | null;
+        title?: {
+          __typename: 'MediaTitle';
+          english?: string | null;
+          native?: string | null;
+          romaji?: string | null;
+          userPreferred?: string | null;
+        } | null;
+        coverImage?: { __typename: 'MediaCoverImage'; medium?: string | null } | null;
+      } | null;
+    } | null>
+  | null
+  | undefined;

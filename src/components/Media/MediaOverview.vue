@@ -22,16 +22,23 @@
     <h2 class="trailer__title overview-title">Trailer</h2>
     <MediaTrailer :trailer="info.trailer" />
   </section>
+
+  <MediaRelations
+    v-if="info.relations"
+    :relations="info.relations"
+  />
 </template>
 
 <script setup lang="ts">
-import { MediaStaffEdge, MediaCharacters, MediaTrailerType } from '@/app/types';
+import { MediaStaffEdge, MediaCharacters, MediaTrailerType, MediaRelationsType } from '@/app/types';
 import MediaStaffList from '@/components/Media/MediaStaffList.vue';
 import MediaCharactersList from '@/components/Media/MediaCharactersList.vue';
 import MediaTrailer from '@/components/Media/MediaTrailer.vue';
+import MediaRelations from '@/components/Media/MediaRelations.vue';
 
 defineProps<{
   info: {
+    relations: MediaRelationsType;
     staff: MediaStaffEdge;
     characters: MediaCharacters;
     trailer: MediaTrailerType;
