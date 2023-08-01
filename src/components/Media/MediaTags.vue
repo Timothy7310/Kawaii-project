@@ -31,7 +31,6 @@ defineProps<{
 
 <style>
 .media-tags {
-  max-width: 210px;
   &__title {
     margin: 0px 0px 20px 0px;
     font-size: 24px;

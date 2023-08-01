@@ -17,41 +17,61 @@ query MediaPageQuery($id: Int) {
       site
       thumbnail
     }
-    characters(sort: FAVOURITES_DESC, perPage: 6, page: 1) {
-      nodes {
-        name {
-          userPreferred
-          full
-        }
-        image {
-          medium
-        }
-      }
+    relations {
       edges {
-        role
-      }
-    }
-    staff(sort: FAVOURITES_DESC, perPage: 3, page: 1) {
-      nodes {
-        name {
-          full
-        }
-        image {
-          medium
-        }
-      }
-      edges {
-        role
-      }
-    }
-    recommendations(sort: RATING, perPage: 7, page: 1) {
-      edges {
+        relationType
         node {
           id
-          media {
+          title {
+            english
+            native
+            romaji
+            userPreferred
+          }
+          coverImage {
+            medium
+          }
+          type
+          status
+        }
+      }
+    }
+    characters(sort: FAVOURITES_DESC, perPage: 6, page: 1) {
+      edges {
+        role
+        node {
+          name {
+            userPreferred
+            full
+          }
+          image {
+            medium
+          }
+        }
+      }
+    }
+    staff(sort: RELEVANCE, perPage: 3, page: 1) {
+      edges {
+        role
+        node {
+          name {
+            full
+          }
+          image {
+            medium
+          }
+        }
+      }
+    }
+    recommendations(sort: RATING_DESC, page: 1, perPage: 8) {
+      edges {
+        node {
+          mediaRecommendation {
+            id
             coverImage {
-              medium
               color
+              large
+              extraLarge
             }
             title {
               english
@@ -64,6 +84,15 @@ query MediaPageQuery($id: Int) {
     tags {
       name
       rank
+    }
+    airingSchedule(notYetAired: true, page: 1, perPage: 1) {
+      edges {
+        node {
+          airingAt
+          episode
+          timeUntilAiring
+        }
+      }
     }
     format
     episodes
@@ -79,7 +108,10 @@ query MediaPageQuery($id: Int) {
       day
       year
     }
+    season
+    seasonYear
     averageScore
+    meanScore
     popularity
     favourites
     studios(isMain: true) {
@@ -89,7 +121,8 @@ query MediaPageQuery($id: Int) {
       }
     }
     source
-    synonyms
+    hashtag
     genres
+    synonyms
   }
 }

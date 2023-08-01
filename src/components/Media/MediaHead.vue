@@ -81,8 +81,10 @@ const loadMore = () => {
 <style>
 .media-head {
   display: flex;
-  gap: 35px;
+  gap: 40px;
   width: 100%;
+  grid-row: 1;
+  grid-column: 1 / 3;
   &__poster {
     height: 100%;
     left: 0;
