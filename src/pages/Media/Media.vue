@@ -60,6 +60,7 @@
           staff: media.staff?.edges,
           characters: media.characters?.edges,
           trailer: media.trailer,
+          recommendations: media.recommendations?.edges,
         }"
         :content="activeTab"
       />

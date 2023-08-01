@@ -63,14 +63,15 @@ query MediaPageQuery($id: Int) {
         }
       }
     }
-    recommendations(sort: RATING, perPage: 7, page: 1) {
+    recommendations(sort: RATING_DESC, page: 1, perPage: 8) {
       edges {
         node {
-          id
-          media {
+          mediaRecommendation {
+            id
             coverImage {
-              medium
               color
+              large
+              extraLarge
             }
             title {
               english

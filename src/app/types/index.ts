@@ -122,3 +122,27 @@ export type MediaRelationsType =
     } | null>
   | null
   | undefined;
+
+export type MediaRecommendationsType =
+  | Array<{
+      __typename: 'RecommendationEdge';
+      node?: {
+        __typename: 'Recommendation';
+        mediaRecommendation?: {
+          __typename: 'Media';
+          id: number;
+          coverImage?: {
+            __typename: 'MediaCoverImage';
+            color?: string | null;
+            extraLarge?: string | null;
+          } | null;
+          title?: {
+            __typename: 'MediaTitle';
+            english?: string | null;
+            romaji?: string | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null>
+  | null
+  | undefined;

@@ -27,14 +27,29 @@
     v-if="info.relations"
     :relations="info.relations"
   />
+
+  <section
+    v-if="info.recommendations"
+    class="recommendations"
+  >
+    <h2 class="recommendations__title overview-title">Recommendations</h2>
+    <MediaRecommendationsList :recommendations="info.recommendations" />
+  </section>
 </template>
 
 <script setup lang="ts">
-import { MediaStaffEdge, MediaCharacters, MediaTrailerType, MediaRelationsType } from '@/app/types';
+import {
+  MediaStaffEdge,
+  MediaCharacters,
+  MediaTrailerType,
+  MediaRelationsType,
+  MediaRecommendationsType,
+} from '@/app/types';
 import MediaStaffList from '@/components/Media/MediaStaffList.vue';
 import MediaCharactersList from '@/components/Media/MediaCharactersList.vue';
 import MediaTrailer from '@/components/Media/MediaTrailer.vue';
 import MediaRelations from '@/components/Media/MediaRelations.vue';
+import MediaRecommendationsList from '@/components/Media/MediaRecommendationsList.vue';
 
 defineProps<{
   info: {
@@ -42,6 +57,7 @@ defineProps<{
     staff: MediaStaffEdge;
     characters: MediaCharacters;
     trailer: MediaTrailerType;
+    recommendations: MediaRecommendationsType;
   };
 }>();
 </script>
